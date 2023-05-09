@@ -12,6 +12,7 @@ import java.util.Map;
  * @Version: 1.0
  */
 public class DefaultSingletonBeanRegistry implements SingletonBeanRegistry {
+    // 用于存放单例bean对象
     private Map<String,Object> singletonObjects=new HashMap<>();
 
     @Override

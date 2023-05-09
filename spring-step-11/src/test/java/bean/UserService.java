@@ -10,6 +10,7 @@ public class UserService implements IUserService {
     public String queryUserInfo() {
         try {
             Thread.sleep(new Random(1).nextInt(100));
+            System.out.println("2");
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

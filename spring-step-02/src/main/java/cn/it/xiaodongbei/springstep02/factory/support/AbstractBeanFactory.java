@@ -13,12 +13,14 @@ import cn.it.xiaodongbei.springstep02.factory.config.BeanDefinition;
 public abstract class AbstractBeanFactory extends DefaultSingletonBeanRegistry implements BeanFactory {
     @Override
     public Object getBean(String name) {
+        // 首先查看是否已经创建了bean对象
         Object bean = getSingleton(name);
         if (bean!=null){
             return bean;
         }
-
+        // 通过名称获取对应的 BeanDefinition
         BeanDefinition beanDefinition = getBeanDefinition(name);
+        // 通过name 和BeanDefinition 创建Bean对象
         return createBean(name,beanDefinition);
     }
     protected abstract BeanDefinition getBeanDefinition(String beanName) throws BeansException;

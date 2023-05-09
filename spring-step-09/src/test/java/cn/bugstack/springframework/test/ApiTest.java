@@ -1,7 +1,7 @@
 package cn.bugstack.springframework.test;
 
-import cn.bugstack.springframework.context.support.ClassPathXmlApplicationContext;
 import cn.bugstack.springframework.test.bean.UserService;
+import cn.it.xiaodongbei.springframework.context.support.ClassPathXmlApplicationContext;
 import org.junit.Test;
 import org.openjdk.jol.info.ClassLayout;
 
@@ -23,7 +23,7 @@ public class ApiTest {
         // 3. 配置 scope="prototype/singleton"
         System.out.println(userService01);
         System.out.println(userService02);
-
+        System.out.println(userService01==userService02);
         // 4. 打印十六进制哈希
         System.out.println(userService01 + " 十六进制哈希：" + Integer.toHexString(userService01.hashCode()));
         System.out.println(ClassLayout.parseInstance(userService01).toPrintable());

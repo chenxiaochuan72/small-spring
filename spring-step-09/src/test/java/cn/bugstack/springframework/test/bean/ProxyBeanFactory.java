@@ -1,6 +1,6 @@
 package cn.bugstack.springframework.test.bean;
 
-import cn.bugstack.springframework.beans.factory.FactoryBean;
+import cn.it.xiaodongbei.springframework.beans.factory.FactoryBean;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Proxy;

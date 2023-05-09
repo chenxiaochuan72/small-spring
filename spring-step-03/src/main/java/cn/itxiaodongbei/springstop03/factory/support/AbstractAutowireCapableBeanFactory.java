@@ -14,15 +14,6 @@ import java.lang.reflect.Constructor;
  */
 public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFactory{
     private InstantiationStrategy instantiationStrategy=new CglibSubclassingInstantiationStrategy();
-    private InstantiationStrategy cglibStrategy=new SimpleInstantiationStrategy();
-
-    public InstantiationStrategy getCglibStrategy() {
-        return cglibStrategy;
-    }
-
-    public void setCglibStrategy(InstantiationStrategy cglibStrategy) {
-        this.cglibStrategy = cglibStrategy;
-    }
 
     public InstantiationStrategy getInstantiationStrategy() {
         return instantiationStrategy;
@@ -55,7 +46,6 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
                 break;
             }
         }
-//        return getInstantiationStrategy().instantiate(beanDefinition,beanName,constructorToUse,args);
         return getInstantiationStrategy().instantiate(beanDefinition,beanName,constructorToUse,args);
     }
 }

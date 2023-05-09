@@ -44,7 +44,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
         try {
             // 判断是否返回代理 Bean 对象
             bean = resolveBeforeInstantiation(beanName, beanDefinition);
-            if (null!=bean){
+            if (null != bean) {
                 return bean;
             }
             bean = createBeanInstance(beanDefinition, beanName, args);
@@ -188,19 +188,23 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
         }
         return getInstantiationStrategy().instantiate(beanDefinition, beanName, constructorToUse, args);
     }
+
     protected Object resolveBeforeInstantiation(String beanName, BeanDefinition beanDefinition) {
         Object bean = applyBeanPostProcessorBeforeInstantiation(beanDefinition.getBeanClass(), beanName);
-        if (null!=bean){
-            bean=applyBeanPostProcessorsAfterInitialization(bean,beanName);
+        if (null != bean) {
+            bean = applyBeanPostProcessorsAfterInitialization(bean, beanName);
         }
         return bean;
     }
+
     // 注意，此方法为新增方法，与 “applyBeanPostProcessorBeforeInitialization” 是两个方法
     public Object applyBeanPostProcessorBeforeInstantiation(Class<?> beanClass, String beanName) throws BeansException {
         for (BeanPostProcessor processor : getBeanPostProcessors()) {
             if (processor instanceof InstantiationAwareBeanPostProcessor) {
-                Object result = ((InstantiationAwareBeanPostProcessor)processor).postProcessBeforeInstantiation(beanClass, beanName);
-                if (null != result) {return result;}
+                Object result = ((InstantiationAwareBeanPostProcessor) processor).postProcessBeforeInstantiation(beanClass, beanName);
+                if (null != result) {
+                    return result;
+                }
             }
         }
         return null;

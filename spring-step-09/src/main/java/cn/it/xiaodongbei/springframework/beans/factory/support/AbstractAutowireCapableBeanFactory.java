@@ -23,15 +23,6 @@ import java.lang.reflect.Method;
  */
 public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFactory implements AutowireCapableBeanFactory {
     private InstantiationStrategy instantiationStrategy = new CglibSubclassingInstantiationStrategy();
-    private InstantiationStrategy cglibStrategy = new SimpleInstantiationStrategy();
-
-    public InstantiationStrategy getCglibStrategy() {
-        return cglibStrategy;
-    }
-
-    public void setCglibStrategy(InstantiationStrategy cglibStrategy) {
-        this.cglibStrategy = cglibStrategy;
-    }
 
     public InstantiationStrategy getInstantiationStrategy() {
         return instantiationStrategy;

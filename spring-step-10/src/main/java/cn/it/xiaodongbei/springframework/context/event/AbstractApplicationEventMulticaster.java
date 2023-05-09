@@ -52,7 +52,9 @@ public abstract class AbstractApplicationEventMulticaster implements Application
         }
         return allListeners;
     }
-
+    /**
+     * 监听器是否对该事件感兴趣
+     */
     private boolean supportsEvent(ApplicationListener<ApplicationEvent> applicationListener, ApplicationEvent event) {
         Class<? extends ApplicationListener> listenerClass = applicationListener.getClass();
         // 按照 CglibSubclassingInstantiationStrategy、SimpleInstantiationStrategy 不同的实例化类型，需要判断后获取目标 class
