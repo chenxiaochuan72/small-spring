@@ -54,7 +54,6 @@ public abstract class AbstractBeanFactory extends FactoryBeanRegistrySupport imp
             // 如果是 FactoryBean，则需要调用 FactoryBean#getObject
             return (T) getObjectForBeanInstance(sharedInstance, name);
         }
-
         BeanDefinition beanDefinition = getBeanDefinition(name);
         Object bean = createBean(name, beanDefinition, args);
         return (T) getObjectForBeanInstance(bean, name);
